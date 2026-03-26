@@ -1,0 +1,92 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-25 13:14:44.709938",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company_name",
+  "company_logo",
+  "default_currency",
+  "gst_percentage",
+  "default_security_deposit_percentage",
+  "late_fee_per_day",
+  "late_fee_percentage",
+  "auto_black_list_threshold_days",
+  "payment_reminder_grace_period"
+ ],
+ "fields": [
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "label": "Company Name"
+  },
+  {
+   "fieldname": "company_logo",
+   "fieldtype": "Attach Image",
+   "label": "Company Logo"
+  },
+  {
+   "fieldname": "default_currency",
+   "fieldtype": "Link",
+   "label": "Default Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "gst_percentage",
+   "fieldtype": "Float",
+   "label": "GST Percentage"
+  },
+  {
+   "fieldname": "default_security_deposit_percentage",
+   "fieldtype": "Float",
+   "label": "Default Security Deposit Percentage"
+  },
+  {
+   "fieldname": "late_fee_per_day",
+   "fieldtype": "Currency",
+   "label": "Late Fee Per Day"
+  },
+  {
+   "fieldname": "late_fee_percentage",
+   "fieldtype": "Float",
+   "label": "Late Fee Percentage"
+  },
+  {
+   "fieldname": "auto_black_list_threshold_days",
+   "fieldtype": "Int",
+   "label": "Auto Black List Threshold Days"
+  },
+  {
+   "fieldname": "payment_reminder_grace_period",
+   "fieldtype": "Int",
+   "label": "Payment Reminder Grace Period"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-03-25 13:19:56.498350",
+ "modified_by": "Administrator",
+ "module": "Iron Fleet",
+ "name": "Rental Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
