@@ -2,12 +2,10 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "naming_series:",
- "creation": "2026-03-25 11:07:21.064816",
+ "creation": "2026-03-28 09:57:05.329422",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_shiq",
-  "amended_from",
   "equipment_category",
   "is_subcontracted",
   "serial_no",
@@ -15,78 +13,17 @@
   "status",
   "condition_rating",
   "location",
-  "next_maintanance_date",
-  "maintanance_days",
+  "next_maintanence_date",
+  "maintanence_days",
   "insurance_expiry_date",
   "naming_series"
  ],
  "fields": [
   {
-   "fieldname": "section_break_shiq",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Equipment",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
-  },
-  {
    "fieldname": "equipment_category",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "label": "Equipment Category",
    "options": "Equipment Category"
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "\nAvailable\nRented\nUnder Maintanance\nRetired",
-   "reqd": 1
-  },
-  {
-   "fieldname": "condition_rating",
-   "fieldtype": "Select",
-   "label": "Condition Rating",
-   "options": "\nExcellent\nGood\nFair\nPoor",
-   "reqd": 1
-  },
-  {
-   "fieldname": "location",
-   "fieldtype": "Data",
-   "label": "Location"
-  },
-  {
-   "fieldname": "next_maintanance_date",
-   "fieldtype": "Date",
-   "label": "Next Maintanance Date"
-  },
-  {
-   "fieldname": "maintanance_days",
-   "fieldtype": "Int",
-   "label": "Maintanance Days"
-  },
-  {
-   "fieldname": "insurance_expiry_date",
-   "fieldtype": "Date",
-   "label": "Insurance Expiry Date"
-  },
-  {
-   "fieldname": "daily_rate",
-   "fieldtype": "Currency",
-   "label": "Daily Rate"
-  },
-  {
-   "fieldname": "naming_series",
-   "fieldtype": "Select",
-   "hidden": 1,
-   "label": "Naming Series",
-   "options": "EQ-.YYYY.-.####"
   },
   {
    "default": "0",
@@ -97,15 +34,57 @@
   {
    "fieldname": "serial_no",
    "fieldtype": "Data",
-   "label": "Serial No",
-   "reqd": 1
+   "label": "Serial No"
+  },
+  {
+   "fieldname": "daily_rate",
+   "fieldtype": "Currency",
+   "label": "Daily Rate"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nAvailable\nRented\nUnder Maintanence\nRetired"
+  },
+  {
+   "fieldname": "condition_rating",
+   "fieldtype": "Select",
+   "label": "Condition Rating",
+   "options": "\nExcellent\nGood\nFair\nPoor"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "next_maintanence_date",
+   "fieldtype": "Date",
+   "label": "Next Maintanence Date"
+  },
+  {
+   "fieldname": "maintanence_days",
+   "fieldtype": "Int",
+   "label": "Maintanence Days"
+  },
+  {
+   "fieldname": "insurance_expiry_date",
+   "fieldtype": "Date",
+   "label": "Insurance Expiry Date"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "EQ-.YYYY.-.#####"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2026-03-25 19:01:48.995503",
+ "modified": "2026-03-28 10:00:54.552070",
  "modified_by": "Administrator",
  "module": "Iron Fleet",
  "name": "Equipment",
@@ -122,7 +101,6 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
-   "submit": 1,
    "write": 1
   }
  ],
