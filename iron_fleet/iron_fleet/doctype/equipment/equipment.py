@@ -17,4 +17,4 @@ class Equipment(Document):
 			if category.daily_rental_rate:
 				return category.daily_rental_rate
 			category = category.parent_equipment_category
-		return 0
+		return category

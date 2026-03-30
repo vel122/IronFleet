@@ -33,3 +33,8 @@ class ProcurementPayment(Document):
 					f"{self.supplier[:3].upper()}-{self.invoice[-4:].upper()}-{random_string(5).upper()}"
 				)
 				equipment.insert(ignore_permissions=True)
+
+		new = frappe.new_doc("Equipment Rate")
+		new.equipment_category = row.equipment_category
+		new.daily_rate = Equipment.get_category(row.equipment_category)
+		new.insert(ignore_permissions=True)

@@ -1,0 +1,175 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-28 13:18:43.014810",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_w0sv",
+  "amended_from",
+  "customer",
+  "rental_start_date",
+  "rental_end_date",
+  "delivery_address",
+  "estimated_rental_days",
+  "rental_agreement_item",
+  "total_daily_rate",
+  "estimated_total",
+  "discount_percentage",
+  "discount_amount",
+  "security_deposit",
+  "grand_total",
+  "outstanding_amount",
+  "payment_schedule",
+  "rejection_reason",
+  "equipments",
+  "payment_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_w0sv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Rental Agreement",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "rental_start_date",
+   "fieldtype": "Date",
+   "label": "Rental Start Date"
+  },
+  {
+   "fieldname": "rental_end_date",
+   "fieldtype": "Date",
+   "label": "Rental End Date"
+  },
+  {
+   "fieldname": "delivery_address",
+   "fieldtype": "Small Text",
+   "label": "Delivery Address"
+  },
+  {
+   "fieldname": "estimated_rental_days",
+   "fieldtype": "Int",
+   "label": "Estimated Rental Days"
+  },
+  {
+   "fieldname": "estimated_total",
+   "fieldtype": "Currency",
+   "label": "Estimated Total"
+  },
+  {
+   "fieldname": "discount_percentage",
+   "fieldtype": "Float",
+   "label": "Discount Percentage"
+  },
+  {
+   "fieldname": "discount_amount",
+   "fieldtype": "Currency",
+   "label": "Discount Amount"
+  },
+  {
+   "fieldname": "security_deposit",
+   "fieldtype": "Currency",
+   "label": "Security Deposit"
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "outstanding_amount",
+   "fieldtype": "Currency",
+   "label": "Outstanding Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rejection_reason",
+   "fieldtype": "Small Text",
+   "label": "Rejection Reason",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rental_agreement_item",
+   "fieldtype": "Table",
+   "label": "Rental Agreement Item",
+   "options": "Rental Agreement Item"
+  },
+  {
+   "fieldname": "total_daily_rate",
+   "fieldtype": "Currency",
+   "label": "Total Daily Rate"
+  },
+  {
+   "fieldname": "equipments",
+   "fieldtype": "Table",
+   "label": "Equipments",
+   "no_copy": 1,
+   "options": "Equipments Assigned",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_schedule",
+   "fieldtype": "Table",
+   "label": "Payment Schedule",
+   "no_copy": 1,
+   "options": "Payment Schedule",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Payment Status",
+   "no_copy": 1,
+   "options": "\nUnpaid\nPartially Paid\nFully Paid",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-03-30 18:03:14.245565",
+ "modified_by": "Administrator",
+ "module": "Iron Fleet",
+ "name": "Rental Agreement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

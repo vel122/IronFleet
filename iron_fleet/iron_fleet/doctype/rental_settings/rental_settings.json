@@ -9,6 +9,8 @@
   "company_logo",
   "default_currency",
   "gst_percentage",
+  "advance_",
+  "mid_",
   "default_security_deposit_percentage",
   "late_fee_per_day",
   "late_fee_percentage",
@@ -61,13 +63,23 @@
    "fieldname": "payment_reminder_grace_period",
    "fieldtype": "Int",
    "label": "Payment Reminder Grace Period"
+  },
+  {
+   "fieldname": "advance_",
+   "fieldtype": "Percent",
+   "label": "Advance %"
+  },
+  {
+   "fieldname": "mid_",
+   "fieldtype": "Percent",
+   "label": "Mid %"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2026-03-25 13:19:56.498350",
+ "modified": "2026-03-30 15:35:37.966581",
  "modified_by": "Administrator",
  "module": "Iron Fleet",
  "name": "Rental Settings",
