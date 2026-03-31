@@ -1,0 +1,122 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:rental_agreement",
+ "creation": "2026-03-30 21:49:56.376213",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_gqpt",
+  "amended_from",
+  "rental_agreement",
+  "return_date",
+  "actual_rental_days",
+  "return_item",
+  "late_fee",
+  "paid_amount",
+  "outstanding_amount",
+  "total_damage_charges",
+  "invoice_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_gqpt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Rental Return",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "rental_agreement",
+   "fieldtype": "Link",
+   "label": "Rental Agreement",
+   "options": "Rental Agreement",
+   "unique": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "return_date",
+   "fieldtype": "Date",
+   "label": "Return Date"
+  },
+  {
+   "fieldname": "actual_rental_days",
+   "fieldtype": "Int",
+   "label": "Actual Rental Days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "late_fee",
+   "fieldtype": "Currency",
+   "label": "Late fee",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_damage_charges",
+   "fieldtype": "Currency",
+   "label": "Total Damage Charges",
+   "read_only": 1
+  },
+  {
+   "fieldname": "invoice_amount",
+   "fieldtype": "Currency",
+   "label": "Invoice Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "return_item",
+   "fieldtype": "Table",
+   "label": "Return Item",
+   "options": "Return Item"
+  },
+  {
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "label": "Paid Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "outstanding_amount",
+   "fieldtype": "Currency",
+   "label": "Outstanding Amount",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-03-31 12:06:52.089143",
+ "modified_by": "Administrator",
+ "module": "Iron Fleet",
+ "name": "Rental Return",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

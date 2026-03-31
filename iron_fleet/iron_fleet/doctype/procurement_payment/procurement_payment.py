@@ -25,6 +25,7 @@ class ProcurementPayment(Document):
 				equipment.maintanence_days = 7
 				equipment.next_maintanence_date = add_days(nowdate(), 15)
 				equipment.insurance_expiry_date = add_days(nowdate(), 365)
+				equipment.registration_expiry_date = add_days(nowdate(), 730)
 				equipment.location = "WH-Chennai"
 				equipment.is_subcontracted = self.is_subcontracted
 				equipment.daily_rate = Equipment.get_category(row.equipment_category)

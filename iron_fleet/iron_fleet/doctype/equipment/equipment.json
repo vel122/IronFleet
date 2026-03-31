@@ -16,6 +16,7 @@
   "next_maintanence_date",
   "maintanence_days",
   "insurance_expiry_date",
+  "registration_expiry_date",
   "naming_series"
  ],
  "fields": [
@@ -47,7 +48,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
-   "options": "\nAvailable\nRented\nUnder Maintanence\nRetired"
+   "options": "\nAvailable\nRented\nNear Maintanence\nUnder Maintanence\nRetired\nInsurance Expired\nRegistration Expired"
   },
   {
    "fieldname": "condition_rating",
@@ -81,12 +82,17 @@
    "hidden": 1,
    "label": "Naming Series",
    "options": "EQ-.YYYY.-.####"
+  },
+  {
+   "fieldname": "registration_expiry_date",
+   "fieldtype": "Date",
+   "label": "Registration Expiry Date"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-03-30 11:54:26.390922",
+ "modified": "2026-03-31 16:24:40.742977",
  "modified_by": "Administrator",
  "module": "Iron Fleet",
  "name": "Equipment",
