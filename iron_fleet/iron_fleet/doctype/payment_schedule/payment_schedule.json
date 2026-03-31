@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-30 16:03:08.179078",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "installment_type",
+  "due_date",
+  "amount_due",
+  "amount_paid",
+  "status",
+  "payment_mode",
+  "reference_number"
+ ],
+ "fields": [
+  {
+   "fieldname": "installment_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Installment Type",
+   "options": "\nAdvance\nMid\nFinal"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Due Date"
+  },
+  {
+   "fieldname": "amount_due",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount Due"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "amount_paid",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount Paid"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nPending\nPaid\nOverdue"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "payment_mode",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Payment Mode",
+   "options": "\nCash\nUPI\nBank Transfer\nCard\nCheque"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "reference_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Reference Number"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-30 17:57:35.486169",
+ "modified_by": "Administrator",
+ "module": "Iron Fleet",
+ "name": "Payment Schedule",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

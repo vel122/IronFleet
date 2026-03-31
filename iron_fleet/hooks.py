@@ -66,6 +66,9 @@ app_license = "mit"
 
 # Generators
 # ----------
+scheduler_events = {
+	"daily": ["iron_fleet.iron_fleet.doctype.rental_agreement.rental_agreement.check_overdue_payments"]
+}
 
 # automatically create page for each record of this doctype
 # website_generators = ["Web Page"]
@@ -249,4 +252,3 @@ app_license = "mit"
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-
