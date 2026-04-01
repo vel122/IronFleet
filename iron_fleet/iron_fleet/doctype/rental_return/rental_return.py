@@ -11,8 +11,8 @@ class RentalReturn(Document):
 		self.fetch_equipment()
 		self.calculate_actual_days()
 		self.calculate_late_fee()
-		self.calculate_damage_fee()
 		self.calculate_paid_amount()
+		self.create_damage_on_return()
 
 	def fetch_equipment(self):
 		if self.rental_agreement and not self.return_item:
@@ -33,25 +33,18 @@ class RentalReturn(Document):
 		else:
 			self.late_fee = 0
 
-	def calculate_damage_fee(self):
-		total_damage_charges = 0
-		for item in self.return_item:
-			if item.damage_charge:
-				total_damage_charges += item.damage_charge
-		self.total_damage_charges = total_damage_charges
-
 	def update_equipment_status(self):
 		for item in self.return_item:
 			if item.condition_on_return == "Damaged":
-				frappe.get_doc(
+				doc = frappe.get_doc(
 					{
 						"doctype": "Maintenance Schedule",
 						"equipment": item.equipment,
-						"maintenance_type": "Repair",
-						"status": "Open",
+						"maintenance_type": "Corrective",
 					}
 				).insert(ignore_permissions=True)
-				frappe.db.set_value("Equipment", item.equipment, "status", "Under Maintenance")
+				frappe.db.set_value("Equipment", item.equipment, "status", "Under Maintanence")
+				frappe.db.set_value("Equipment", item.equipment, "maintenance", doc.name)
 			else:
 				frappe.db.set_value("Equipment", item.equipment, "status", "Available")
 
@@ -65,6 +58,35 @@ class RentalReturn(Document):
 		self.invoice_amount = (
 			(doc.outstanding_amount or 0) + (self.late_fee or 0) + (self.total_damage_charges or 0)
 		)
+
+	def create_damage_on_return(self):
+		for item in self.return_item:
+			if item.condition_on_return == "Damaged":
+				frappe.get_doc(
+					{
+						"doctype": "Damage On Return",
+						"rental_return": self.name,
+						"equipment": item.equipment,
+						"customer_caused": 1,
+					}
+				).insert(ignore_permissions=True)
+
+	def before_submit(self):
+		total = 0
+		for item in self.return_item:
+			if item.condition_on_return == "Damaged":
+				doc = frappe.get_all(
+					"Damage On Return",
+					filters={"rental_return": self.name, "equipment": item.equipment},
+					fields=["customer_caused", "estimated_repair_cost"],
+				)
+				total += sum(
+					damage.get("estimated_repair_cost", 0)
+					for damage in doc
+					if damage.get("customer_caused") == 1
+				)
+		self.total_damage_charges = total
+		self.invoice_amount += self.total_damage_charges or 0
 
 	def on_submit(self):
 		self.update_equipment_status()
