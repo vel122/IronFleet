@@ -15,9 +15,11 @@
   "location",
   "next_maintanence_date",
   "maintanence_days",
+  "insurance_policy_number",
   "insurance_expiry_date",
   "registration_expiry_date",
-  "naming_series"
+  "naming_series",
+  "maintenance"
  ],
  "fields": [
   {
@@ -87,12 +89,23 @@
    "fieldname": "registration_expiry_date",
    "fieldtype": "Date",
    "label": "Registration Expiry Date"
+  },
+  {
+   "depends_on": "eval:doc.status == \"Under Maintanence\"",
+   "fieldname": "maintenance",
+   "fieldtype": "Data",
+   "label": "Maintenance"
+  },
+  {
+   "fieldname": "insurance_policy_number",
+   "fieldtype": "Data",
+   "label": "Insurance Policy Number"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-03-31 16:24:40.742977",
+ "modified": "2026-04-01 17:53:04.246181",
  "modified_by": "Administrator",
  "module": "Iron Fleet",
  "name": "Equipment",

@@ -1,0 +1,113 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-04-01 16:05:34.541867",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_7aqb",
+  "amended_from",
+  "equipment",
+  "rental_return",
+  "damage_photos",
+  "damage_severity",
+  "estimated_repair_cost",
+  "covered_under_insurance",
+  "customer_caused",
+  "naming_series"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_7aqb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Damage On Return",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "equipment",
+   "fieldtype": "Link",
+   "label": "Equipment",
+   "options": "Equipment"
+  },
+  {
+   "fieldname": "rental_return",
+   "fieldtype": "Link",
+   "label": "Rental Return",
+   "options": "Rental Return"
+  },
+  {
+   "fieldname": "damage_photos",
+   "fieldtype": "Attach Image",
+   "label": "Damage Photos"
+  },
+  {
+   "fieldname": "damage_severity",
+   "fieldtype": "Select",
+   "label": "Damage Severity",
+   "options": "\nMinor\nMajor\nModerate\nCritical"
+  },
+  {
+   "fieldname": "estimated_repair_cost",
+   "fieldtype": "Currency",
+   "label": "Estimated Repair Cost"
+  },
+  {
+   "default": "0",
+   "fieldname": "covered_under_insurance",
+   "fieldtype": "Check",
+   "label": "Covered Under Insurance"
+  },
+  {
+   "default": "0",
+   "fieldname": "customer_caused",
+   "fieldtype": "Check",
+   "label": "Customer Caused"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "DM-.YYYY.-.####"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-01 17:27:50.202713",
+ "modified_by": "Administrator",
+ "module": "Iron Fleet",
+ "name": "Damage On Return",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

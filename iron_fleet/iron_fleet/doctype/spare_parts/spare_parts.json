@@ -1,0 +1,59 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:spare_part",
+ "creation": "2026-04-01 11:46:03.346166",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "spare_part",
+  "quantity",
+  "unit_cost"
+ ],
+ "fields": [
+  {
+   "fieldname": "spare_part",
+   "fieldtype": "Data",
+   "label": "Spare Part",
+   "unique": 1
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Int",
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "unit_cost",
+   "fieldtype": "Currency",
+   "label": "Unit Cost"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-01 12:01:11.887561",
+ "modified_by": "Administrator",
+ "module": "Iron Fleet",
+ "name": "Spare Parts",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -8,7 +8,6 @@
  "field_order": [
   "equipment",
   "condition_on_return",
-  "damage_charge",
   "damage_description"
  ],
  "fields": [
@@ -27,12 +26,6 @@
    "options": "\nExcellent\nGood\nFair\nPoor\nDamaged"
   },
   {
-   "fieldname": "damage_charge",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Damage Charge"
-  },
-  {
    "fieldname": "damage_description",
    "fieldtype": "Small Text",
    "in_list_view": 1,
@@ -43,7 +36,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-03-31 13:52:59.100133",
+ "modified": "2026-04-01 16:14:56.743657",
  "modified_by": "Administrator",
  "module": "Iron Fleet",
  "name": "Return Item",

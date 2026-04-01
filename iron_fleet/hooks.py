@@ -67,7 +67,10 @@ app_license = "mit"
 # Generators
 # ----------
 scheduler_events = {
-	"daily": ["iron_fleet.iron_fleet.doctype.rental_agreement.rental_agreement.check_overdue_payments"]
+	"daily": [
+		"iron_fleet.iron_fleet.doctype.rental_agreement.rental_agreement.check_overdue_payments",
+		"iron_fleet.iron_fleet.doctype.maintenance_schedule.maintenance_schedule.create_maintenance_schedule",
+	]
 }
 
 doctype_list_js = {"Equipment": "public/js/equipment_list.js"}
@@ -254,3 +257,4 @@ doctype_list_js = {"Equipment": "public/js/equipment_list.js"}
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
+fixtures = [{"doctype": "Custom DocPerm"}]

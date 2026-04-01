@@ -1,44 +1,118 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:equipment",
+ "autoname": "naming_series:",
  "creation": "2026-03-30 22:36:58.784651",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "equipment",
   "maintenance_type",
-  "status"
+  "assigned_technician",
+  "work_description",
+  "parts_used",
+  "labor_hours",
+  "labor_cost",
+  "total_cost",
+  "completion_date",
+  "priority",
+  "naming_series",
+  "email",
+  "amended_from"
  ],
  "fields": [
   {
    "fieldname": "equipment",
    "fieldtype": "Link",
    "label": "Equipment",
-   "options": "Equipment",
-   "unique": 1
+   "options": "Equipment"
   },
   {
    "fieldname": "maintenance_type",
    "fieldtype": "Select",
    "label": "Maintenance Type",
-   "options": "\nRepair\nPreventive\nBreakdown"
+   "options": "\nPreventive\nCorrective\nBreakdown\nEmergency\nRecall"
   },
   {
-   "fieldname": "status",
+   "fieldname": "assigned_technician",
+   "fieldtype": "Link",
+   "label": "Assigned Technician",
+   "options": "Technician"
+  },
+  {
+   "fieldname": "work_description",
+   "fieldtype": "Long Text",
+   "label": "Work Description"
+  },
+  {
+   "fieldname": "parts_used",
+   "fieldtype": "Table",
+   "label": "Parts Used",
+   "options": "Maintanence Part"
+  },
+  {
+   "fieldname": "labor_hours",
+   "fieldtype": "Float",
+   "label": "Labor Hours"
+  },
+  {
+   "fieldname": "labor_cost",
+   "fieldtype": "Currency",
+   "label": "Labor Cost"
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "completion_date",
+   "fieldtype": "Date",
+   "label": "Completion Date"
+  },
+  {
+   "fieldname": "priority",
    "fieldtype": "Select",
-   "label": "Status",
-   "options": "\nOpen\nClosed\nCompleted"
+   "label": "Priority",
+   "options": "\nLow\nNormal\nHigh"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "MS-.YYYY.-.####"
+  },
+  {
+   "fetch_from": "assigned_technician.user",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Email",
+   "options": "Email",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Maintenance Schedule",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2026-03-31 13:57:05.263518",
- "modified_by": "Administrator",
+ "modified": "2026-04-01 13:40:54.809773",
+ "modified_by": "tech7@ac.in",
  "module": "Iron Fleet",
  "name": "Maintenance Schedule",
- "naming_rule": "By fieldname",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
