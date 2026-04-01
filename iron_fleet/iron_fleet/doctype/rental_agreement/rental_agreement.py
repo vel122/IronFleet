@@ -47,6 +47,8 @@ class RentalAgreement(Document):
 					)
 
 	def before_submit(self):
+		self.outstanding_amount = self.grand_total
+
 		self.check_availability()
 		self.check_maintenance_availability()
 		self.build_payment_schedule()
@@ -85,12 +87,43 @@ class RentalAgreement(Document):
 				return
 
 	def on_cancel(self):
+		self.notify_customer()
 		for item in self.equipments:
 			frappe.db.set_value("Equipment", item.equipments, "status", "Available")
 
-		payments = frappe.get_all("Rental Payment", filters={"rental_agreement": self.name})
+		payments = frappe.get_all(
+			"Rental Payment", filters={"rental_agreement": self.name}, fields=["name", "docstatus"]
+		)
 		for payment in payments:
-			frappe.db.set_value("Rental Payment", payment.name, "status", "Cancelled")
+			doc = frappe.get_doc("Rental Payment", payment.name)
+			if doc.docstatus == 1:
+				doc.cancel()
+		doc = frappe.get_doc("Rental Agreement", self.name)
+		for item in doc.equipments:
+			return frappe.db.set_value("Equipment", item.equipments, "status", "Available")
+
+		rental_return = frappe.get_doc("Rental Return", self.name)
+		if rental_return.docstatus == 1:
+			rental_return.cancel()
+		if rental_return.return_item:
+			for item in rental_return.return_item:
+				if item.condition_on_return == "Damaged":
+					frappe.db.set_value("Equipment", item.equipment, "status", "Under Maintanence")
+				else:
+					frappe.db.set_value("Equipment", item.equipment, "status", "Available")
+
+		rental = frappe.get_doc("Rental Invoice", self.name)
+		if rental.docstatus == 1:
+			rental.cancel()
+
+	def notify_customer(self):
+		doc = frappe.db.get_value("Customer", self.customer, "email")
+		if doc:
+			frappe.sendmail(
+				recipients=[doc],
+				subject=f"Rental Agreement {self.name} Update",
+				message=f"Dear {self.customer},\n\nYour Rental Agreement {self.name} has been Cancelled",
+			)
 
 	def build_payment_schedule(self):
 		settings = frappe.get_cached_doc("Rental Settings")
@@ -140,17 +173,6 @@ class RentalAgreement(Document):
 			new.status = item.status
 			new.insert(ignore_permissions=True)
 
-	def check_overdue_payments(self):
-		for payment in self.payment_schedule:
-			if payment.status != "Paid" and payment.due_date < frappe.utils.nowdate():
-				payment.status = "Overdue"
-			frappe.sendmail(
-				recipients=self.customer_email,
-				subject=f"Overdue Payment for Rental Agreement {self.name}",
-				message=f"Dear {self.customer},\n\nYour payment for the {payment.installment_type} installment of Rental Agreement {self.name} is overdue.",
-			)
-		self.save()
-
 	def notify_next_approver(self):
 		role_map = {
 			"Pending Review": "Operations Head",
@@ -189,3 +211,15 @@ class RentalAgreement(Document):
 					Amount: {self.grand_total}
 					""",
 				)
+
+
+def check_overdue_payments(self):
+	for payment in self.payment_schedule:
+		if payment.status != "Paid" and payment.due_date < frappe.utils.nowdate():
+			payment.status = "Overdue"
+		frappe.sendmail(
+			recipients=self.customer_email,
+			subject=f"Overdue Payment for Rental Agreement {self.name}",
+			message=f"Dear {self.customer},\n\nYour payment for the {payment.installment_type} installment of Rental Agreement {self.name} is overdue.",
+		)
+	self.save()

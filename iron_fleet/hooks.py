@@ -70,6 +70,8 @@ scheduler_events = {
 	"daily": ["iron_fleet.iron_fleet.doctype.rental_agreement.rental_agreement.check_overdue_payments"]
 }
 
+doctype_list_js = {"Equipment": "public/js/equipment_list.js"}
+
 # automatically create page for each record of this doctype
 # website_generators = ["Web Page"]
 
